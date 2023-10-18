@@ -8,14 +8,10 @@ n=$1
 
 adr=$PWD
 
-#1. nacin 
-
-#find $adr -maxdepth 1 -type f -mmin -$n | rev | cut -d'/' -f 1 | rev | xargs tar cvf backup.tgz
-
-#2. nacin - isto kao 1. samo nisu ukljuceni hidden fileovi
-
 cd /home/$USER
 
 find /home/$USER -maxdepth 1 -type f -mmin -$n -not -path "*/.*" | rev | cut -d'/' -f 1 | rev | xargs tar cvf backup.tgz
 
 cd $adr
+
+#napomena: napravio sam da hidden fileovi nisu ukljuceni 

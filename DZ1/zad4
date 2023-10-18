@@ -1,10 +1,13 @@
 #!/bin/bash 
 
-currentScript=$0
+currentScript=$0            		#pristupam imenu bash skripte, prenosi se kao nulti argument bash skripte
 
-nameRev=$(echo $currentScript | rev)
+nameRev=$(echo $currentScript | rev)	#okrecem ime datoteke
 
-echo $nameRev
+echo $nameRev				#ispis obrnutog imena
 
-cat $currentScript | tac > $nameRev
+cat $currentScript | tac > $nameRev     #citanje datoteke pomocu cat i pipeanje u tac
+					#preusmjeravanje output tac u file obrnutog imena
+
+
 
