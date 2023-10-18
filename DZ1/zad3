@@ -1,0 +1,13 @@
+#!/bin/bash
+
+IP=$1
+portNum=$2
+
+#echo $IP
+#echo $portNum
+
+sudo lsof -i -P -n | grep ":$portNum " | grep "$IP" | grep "LISTEN"
+
+
+
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+# Napisati skriptu koja ce pronaci sve datoteke vece od definirane velicine
+# (preko argumenta) u "/home/username" direktoriju, ispisati i komprimirati
+# u "backup.tgz"
+
+arg=$1
+
+adr=$PWD 
+
+cd /home/$USER
+
+find /home/$USER -maxdepth 1 -type f -size +$arg\c -not -path "*/.*" | rev | cut -d'/' -f-1 | rev | xargs tar cvf /home/$USER/backup.tgz
+
+cd $adr

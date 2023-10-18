@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#Napisati skriptu koja ce suspendirati ili hibernirati racunalo na sat vremena
+#
+
+#sudo sh -c "echo 0 > /sys/class/rtc/rtc0/wakealarm"
+#sudo sh -c "echo $(date '+%s' -d '+60 minutes') > /sys/class/rtc/rtc0/wakealarm"
+#systemctl suspend
+
+#Napisati skriptu koja ce suspendirati ili hibernirati racunalno za sat vremena
+sleep 3600
+systemctl suspend
+
+

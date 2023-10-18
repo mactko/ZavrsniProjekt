@@ -1,0 +1,15 @@
+#!/bin/bash
+
+URL=https://www.njuskalo.hr/traktori
+
+wget $URL
+
+cat traktori | grep -i 'data-href=/traktori' | grep -v '?tab=map' | cut -d '"' -f 4 | cut -d '/' -f 3 | grep -v "button" > traktori.txt
+
+sed 's/.\{15\}$//' traktori.txt > imenaOglasi.txt
+
+rm traktori
+rm traktori.txt
+
+exit 
+

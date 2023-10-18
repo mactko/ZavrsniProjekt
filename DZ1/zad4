@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+currentScript=$0
+
+nameRev=$(echo $currentScript | rev)
+
+echo $nameRev
+
+cat $currentScript | tac > $nameRev
+

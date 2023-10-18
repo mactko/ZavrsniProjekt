@@ -1,0 +1,17 @@
+#!/bin/bash
+
+logTime=$1
+minToSec=60
+
+currentLog=0
+
+logTimeSec=$((logTime * minToSec))
+
+while true
+do
+	currentLog=$(who | cut -d' ' -f -1 | tr '\n' ' ')
+	currentDate=$(date)
+	currentLog="$currentLog $currentDate"
+	echo $currentLog >> log_history.log
+	sleep $logTimeSec
+done

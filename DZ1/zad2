@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Napisat skriptu koja ce pronaci sve datoteke koje su promijenjene u zadnjih n minuta 
+# (broj n zadan preko argumenta) u "/home/username" direktoriju i ispisati i komprimirati
+# u "backup.tgz"
+
+n=$1
+
+adr=$PWD
+
+#1. nacin 
+
+#find $adr -maxdepth 1 -type f -mmin -$n | rev | cut -d'/' -f 1 | rev | xargs tar cvf backup.tgz
+
+#2. nacin - isto kao 1. samo nisu ukljuceni hidden fileovi
+
+cd /home/$USER
+
+find /home/$USER -maxdepth 1 -type f -mmin -$n -not -path "*/.*" | rev | cut -d'/' -f 1 | rev | xargs tar cvf backup.tgz
+
+cd $adr
